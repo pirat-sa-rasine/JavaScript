@@ -57,7 +57,7 @@ console.log(areArraysEqual(a, b)); // Arrays are NOT equal !  */
 /**
  * Create a function "elementFound" with two parameters "inputArray" 
  * and "searchElement".
- * If "searchElement" is found in the "inputArray" - retrun "true"
+ * If "searchElement" is found in the "inputArray" - return "true"
  * otherwise retrun "false"
  */
 
@@ -77,7 +77,7 @@ console.log(elementFound(transport, "Airplane")); */
 console.log(myNumbers.includes(-5)); // false
 console.log(myNumbers.includes(5)); // true */
 
-const tags = [
+/* const tags = [
     ["javascript", "es6"],
     ["css", "flexbox"],
     ["html", "web-browser"],
@@ -94,19 +94,73 @@ const primitiveTypesArray = [
 ];
 
 const elementIsIncluded = (arr, searchElement) => {
-    let msg = '';
-    arr => {
-        arr.find(elem => {
-            if(typeof elem === "object" || typeof elem === "array") {
-                msg = "elem is object or array";
-            }
-        })
+    if (typeof searchElement !== "object") {
+        return arr.includes(searchElement);
     }
 
-    return msg;
+    if (typeof searchElement === "object") {
+        return arr.map(element => JSON.stringify(element)).includes(JSON.stringify(searchElement));
+    }
 };
 
-console.log(elementIsIncluded(tags,"javascript"));
+
+// console.log(primitiveTypesArray.map(elem =>  elem).includes(2));
+
+console.log(elementIsIncluded(primitiveTypesArray, 1)); // false
+console.log(elementIsIncluded(primitiveTypesArray, 25)); // true
+
+console.log("---------------------------");
+
+console.log(elementIsIncluded(tags, ["css", "flexbox"])); // true
+console.log(elementIsIncluded(tags, ["web-browser", "html"])); // false
+
+console.log("---------------------------");
+
+console.log(elementIsIncluded(fruits, { title: "Apple", quantity: 25})); // false
+console.log(elementIsIncluded(fruits, { title: "Banana", quantity: 34})); // true
+
+console.log("---------------------------"); */
+
+/**
+ * CHALLENGE 3
+ * 
+ * Create a function "pushIfUnique" with two parameters
+ * "inputArray" and "newElement"
+ * 
+ * If "inputArray" already contains "newElement" print
+ * "{newElement} is already in the array" to the console.
+ * 
+ * Otherwise push "newElement" to the "inputArray"
+ * 
+ * NOTE: we assume that "inputArray" may contain only primitive
+ * variable types
+ */
+
+/* const myNumbers = [123, 50, 27];
+
+const pushUnique = (inputArray, newElement) => {
+    if (myNumbers.includes(newElement)) {
+        console.log(newElement, "is in the array");
+    } else {
+        myNumbers.push(newElement);
+    }
+};
+
+pushUnique(myNumbers, 123);
+pushUnique(myNumbers, 12);
+pushUnique(myNumbers, 12);
+
+console.log(myNumbers); */
+
+
+
+
+
+
+
+
+
+
 
 
 
